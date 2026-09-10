@@ -87,16 +87,27 @@ void Plane::PrintData() {
 
 std::string Plane::GetWriteToFileData() {
     std::string data = type + "|" + name + "|" + std::to_string(cargo_volume) + "|" + std::to_string(sizeX) + "|" +
-                       std::to_string(sizeY) + "|" + std::to_string(sizeZ) + "|";
+                       std::to_string(sizeY) + "|" + std::to_string(sizeZ) + "|" + std::to_string(amount_cities) + '|';
+
     for (int i = 0; i < amount_cities; i++) {
         data += cities[i];
         if (i != amount_cities - 1) {
             data += "#";
-        } else {
-            data += "|";
         }
     }
-    data += std::to_string(amount_cities);
     data += Transporter::GetWriteToFileData();
     return data;
+}
+
+Transporter *Plane::Clone() const {
+    return new Plane(*this);
+}
+
+void Plane::setCities(std::string *cities, int amount_cities) {
+    delete[] this->cities;
+    this->amount_cities = amount_cities;
+    this->cities = new std::string[amount_cities];
+    for (int i = 0; i < amount_cities; i++) {
+        this->cities[i] = cities[i];
+    }
 }

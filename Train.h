@@ -28,4 +28,14 @@ public:
     void PrintData() override;
 
     std::string GetWriteToFileData() override;
+
+    [[nodiscard]] Transporter *Clone() const override;
+
+
+    void setName(const std::string &new_name) { name = new_name; }
+    void setYearRelease(int new_year_release) { year_release = new_year_release; }
+    void setAmountBags(int new_amount_bags) { amount_bags = new_amount_bags; }
+    void setCargoVolume(float new_cargo_volume) { cargo_volume = new_cargo_volume; }
+
+    void setPath(const std::string *new_path, int new_amount_points);
 };

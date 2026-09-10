@@ -9,4 +9,6 @@ public:
     virtual void PrintData() = 0;
 
     virtual std::string GetWriteToFileData() = 0;
+
+    [[nodiscard]] virtual Transporter *Clone() const = 0;
 };

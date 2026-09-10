@@ -12,4 +12,6 @@ add_executable(First_laba main.cpp
         Train.h
         Plane.cpp
         Plane.h
+        Keeper.cpp
+        Keeper.h
 )

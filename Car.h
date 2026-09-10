@@ -28,4 +28,17 @@ public:
     void PrintData() override;
 
     std::string GetWriteToFileData() override;
+
+    [[nodiscard]] Transporter *Clone() const override;
+
+
+    void setYearRelease(int new_year_release) { year_release = new_year_release; }
+    void setBrand(const std::string &new_brand) { brand = new_brand; }
+    void setModel(const std::string &new_model) { model = new_model; }
+
+    void setCities(const std::string *cities, int amount_points);
+
+    void setHoursDelivery(const float *hours_delivery, int amount_points);
+
+    void setCargoVolumes(const float *cargo_volumes, int amount_points);
 };

@@ -79,18 +79,27 @@ void Train::PrintData() {
 }
 
 std::string Train::GetWriteToFileData() {
-    std::string data = name + "|" + std::to_string(year_release) + "|";
+    std::string data = name + "|" + std::to_string(year_release) + "|" + std::to_string(amount_bags) + "|" +
+                       std::to_string(cargo_volume) + "|" + std::to_string(amount_points) + "|";
     for (int i = 0; i < amount_points; i++) {
         data += path[i];
         if (i != amount_points - 1) {
             data += "#";
-        } else {
-            data += "|";
         }
     }
-    data += std::to_string(amount_points);
-    data += std::to_string(amount_bags);
-    data += std::to_string(cargo_volume);
     data += Transporter::GetWriteToFileData();
     return data;
+}
+
+Transporter *Train::Clone() const {
+    return new Train(*this);
+}
+
+void Train::setPath(const std::string *new_path, int new_amount_points) {
+    delete[] path;
+    amount_points = new_amount_points;
+    path = new std::string[amount_points];
+    for (int i = 0; i < amount_points; i++) {
+        path[i] = new_path[i];
+    }
 }

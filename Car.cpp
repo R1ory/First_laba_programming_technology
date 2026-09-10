@@ -86,7 +86,8 @@ void Car::PrintData() {
 }
 
 std::string Car::GetWriteToFileData() {
-    std::string data = std::to_string(year_release) + "|" + brand + "|" + model + "|";
+    std::string data = std::to_string(year_release) + "|" + brand + "|" + model + "|" + std::to_string(amount_points) +
+                       "|";
     for (int i = 0; i < amount_points; i++) {
         data += cities[i];
         if (i != amount_points - 1) {
@@ -107,11 +108,39 @@ std::string Car::GetWriteToFileData() {
         data += std::to_string(cargo_volumes[i]);
         if (i != amount_points - 1) {
             data += "#";
-        } else {
-            data += "|";
         }
     }
-    data += std::to_string(amount_points);
     data += Transporter::GetWriteToFileData();
     return data;
+}
+
+Transporter *Car::Clone() const {
+    return new Car(*this);
+}
+
+void Car::setCities(const std::string *cities, int amount_points) {
+    delete[] this->cities;
+    this->amount_points = amount_points;
+    this->cities = new std::string[amount_points];
+    for (int i = 0; i < amount_points; i++) {
+        this->cities[i] = cities[i];
+    }
+}
+
+void Car::setHoursDelivery(const float *hours_delivery, int amount_points) {
+    delete[] this->hours_delivery;
+    this->amount_points = amount_points;
+    this->hours_delivery = new float[amount_points];
+    for (int i = 0; i < amount_points; i++) {
+        this->hours_delivery[i] = hours_delivery[i];
+    }
+}
+
+void Car::setCargoVolumes(const float *cargo_volumes, int amount_points) {
+    delete[] this->cargo_volumes;
+    this->amount_points = amount_points;
+    this->cargo_volumes = new float[amount_points];
+    for (int i = 0; i < amount_points; i++) {
+        this->cargo_volumes[i] = cargo_volumes[i];
+    }
 }

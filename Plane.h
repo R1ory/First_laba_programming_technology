@@ -28,4 +28,16 @@ public:
     void PrintData() override;
 
     std::string GetWriteToFileData() override;
+
+    [[nodiscard]] Transporter *Clone() const override;
+
+
+    void setType(const std::string &newType) { type = newType; }
+    void setName(const std::string &newName) { name = newName; }
+    void setCargoVolume(float new_cargo_volume) { cargo_volume = new_cargo_volume; }
+    void setSizeX(float sizeX) { this->sizeX = sizeX; }
+    void setSizeY(float sizeY) { this->sizeY = sizeY; }
+    void setSizeZ(float sizeZ) { this->sizeZ = sizeZ; }
+
+    void setCities(std::string *cities, int amount_cities);
 };
