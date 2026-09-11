@@ -1,6 +1,7 @@
 #include "Car.h"
 
 Car::Car() {
+    std::cout << "Constructor \"Car\" called" << std::endl;
     year_release = 2000;
     brand = "Lada";
     model = "Granta";
@@ -12,6 +13,7 @@ Car::Car() {
 
 Car::Car(int year_release, const std::string &brand, const std::string &model, const std::string *cities,
          const float *hours_delivery, const float *cargo_volumes, int amount_points) {
+    std::cout << "Constructor \"Car\" called" << std::endl;
     this->year_release = year_release;
     this->brand = brand;
     this->model = model;
@@ -28,6 +30,7 @@ Car::Car(int year_release, const std::string &brand, const std::string &model, c
 }
 
 Car::Car(const Car &other) {
+    std::cout << "Copy constructor \"Car\" called" << std::endl;
     year_release = other.year_release;
     brand = other.brand;
     model = other.model;
@@ -43,6 +46,7 @@ Car::Car(const Car &other) {
 }
 
 Car::~Car() {
+    std::cout << "Destructor \"Car\" called" << std::endl;
     delete[] cities;
     delete[] hours_delivery;
     delete[] cargo_volumes;

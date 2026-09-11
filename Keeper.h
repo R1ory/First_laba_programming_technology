@@ -15,6 +15,11 @@ public:
 
     ~Keeper();
 
+    int getAmountTransporters() const {
+        return current_amount_transporters;
+    }
+
+
     void PushObject(const Transporter *transporter);
 
     void RemoveObject(int index);

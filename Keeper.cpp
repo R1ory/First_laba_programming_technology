@@ -44,6 +44,7 @@ void Keeper::RemoveObject(int index) {
 void Keeper::PrintAllObjectsInfo() const {
     std::cout << "Keeper contains: " << std::endl;
     for (int i = 0; i < current_amount_transporters; i++) {
+        std::cout << i + 1 << ")" << std::endl;
         transporters[i]->PrintData();
     }
 }

@@ -1,6 +1,7 @@
 #include "Plane.h"
 
 Plane::Plane() {
+    std::cout << "Constructor \"Plane\" called" << std::endl;
     type = "Cargo";
     name = "F1";
     cargo_volume = 20000;
@@ -13,6 +14,7 @@ Plane::Plane() {
 
 Plane::Plane(const std::string &type, const std::string &name, float cargo_volume, float sizeX, float sizeY,
              float sizeZ, const std::string *cities, int amount_cities) {
+    std::cout << "Constructor \"Plane\" called" << std::endl;
     this->type = type;
     this->name = name;
     this->cargo_volume = cargo_volume;
@@ -28,6 +30,7 @@ Plane::Plane(const std::string &type, const std::string &name, float cargo_volum
 }
 
 Plane::Plane(const Plane &other) {
+    std::cout << "Copy constructor \"Plane\" called" << std::endl;
     type = other.type;
     name = other.name;
     cargo_volume = other.cargo_volume;
@@ -42,6 +45,7 @@ Plane::Plane(const Plane &other) {
 }
 
 Plane::~Plane() {
+    std::cout << "Destructor \"Plane\" called" << std::endl;
     delete[] cities;
 }
 

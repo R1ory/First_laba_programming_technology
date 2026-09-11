@@ -1,6 +1,7 @@
 #include "Train.h"
 
 Train::Train() {
+    std::cout << "Constructor \"Train\" called" << std::endl;
     name = "Name";
     year_release = 2000;
     amount_points = 2;
@@ -11,6 +12,7 @@ Train::Train() {
 
 Train::Train(const std::string &name, int year_release, const std::string *path, int amount_points, int amount_bags,
              float cargo_volume) {
+    std::cout << "Constructor \"Train\" called" << std::endl;
     this->name = name;
     this->year_release = year_release;
 
@@ -25,6 +27,7 @@ Train::Train(const std::string &name, int year_release, const std::string *path,
 }
 
 Train::Train(const Train &other) {
+    std::cout << "Copy constructor \"Train\" called" << std::endl;
     name = other.name;
     year_release = other.year_release;
     amount_points = other.amount_points;
@@ -38,6 +41,7 @@ Train::Train(const Train &other) {
 }
 
 Train::~Train() {
+    std::cout << "Destructor \"Train\" called" << std::endl;
     delete[]path;
 }
 
